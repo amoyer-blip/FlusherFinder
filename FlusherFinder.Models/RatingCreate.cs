@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlusherFinder.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace FlusherFinder.Models
 {
     public class RatingCreate
     {
+        [Required]
+        public virtual Location Location { get; set; }
         [Required]
         public double CleanlinessRating { get; set; }
 
