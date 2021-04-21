@@ -1,35 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlusherFinder.Data
+namespace FlusherFinder.Models
 {
-    public class Note
+    public class NoteDetail
     {
-        [Key]
         public int NoteId { get; set; }
 
-        [ForeignKey(nameof(Rating))]
         public int RatingId { get; set; }
 
-        public virtual Rating Rating { get; set; }
-
-        [ForeignKey(nameof(Location))]
         public int LocationId { get; set; }
 
-        public virtual Location Location { get; set; }
+        public string LocationName { get; set; }
 
         public string NoteTitle { get; set; }
 
         public string NoteContent { get; set; }
 
-        [Required]
+        [Display(Name = "Note Created On")]
         public DateTimeOffset CreatedUtc { get; set; }
 
+        [Display(Name = "Note Modified On")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
