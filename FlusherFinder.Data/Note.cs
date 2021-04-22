@@ -23,6 +23,9 @@ namespace FlusherFinder.Data
 
         public virtual Location Location { get; set; }
 
+        [Required]
+        public Guid CreatorId { get; set; }
+
         public string NoteTitle { get; set; }
 
         public string NoteContent { get; set; }

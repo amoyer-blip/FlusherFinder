@@ -11,11 +11,10 @@ namespace FlusherFinder.Models
     {
         [MinLength(1, ErrorMessage = "Please enter a title in the space. A minimum of 1 character is required. Thank you.")]
         [MaxLength(50, ErrorMessage = "Title is too long. A maximum of 50 characters. Thank you.")]
-        public string Title { get; set; }
+        public string NoteTitle { get; set; }
 
         public int RatingId { get; set; }
-
         [MaxLength(2000, ErrorMessage = "You have exceeded 2000 characters.")]
-        public string Content { get; set; }
+        public string NoteContent { get; set; }
     }
 }

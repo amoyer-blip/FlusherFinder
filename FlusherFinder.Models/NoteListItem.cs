@@ -10,10 +10,6 @@ namespace FlusherFinder.Models
     {
         public int NoteId { get; set; }
 
-        public int RatingId { get; set; }
-
-        public string LocationName { get; set; }
-
         public string NoteTitle { get; set; }
     }
 }
