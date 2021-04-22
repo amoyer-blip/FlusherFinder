@@ -15,8 +15,8 @@ namespace FlusherFinder.Controllers
     {
         private RatingService CreateRatingService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var ratingService = new RatingService(userId);
+            var creatorId = Guid.Parse(User.Identity.GetUserId());
+            var ratingService = new RatingService(creatorId);
             return ratingService;
         }
 
