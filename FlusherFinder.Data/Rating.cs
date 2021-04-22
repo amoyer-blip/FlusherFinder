@@ -21,19 +21,28 @@ namespace FlusherFinder.Data
         public Guid CreatorId { get; set; }
        
         [Required]
-        [Range(0,2)]
+        [Range(0,5)]
         public double CleanlinessRating { get; set; }
 
-        [Required, Range(0,10)]
+        [Required, Range(0,5)]
         //For Accessibility & Amenities ratings:
         //Range will change depending on the number of factors we will be looking at.
         //IE, right now we're set up to look at 10 different amenities. Each amenity will get a "1"
         //if it is present, otherwise it will get a "0". 
         public double AccessibilityRating { get; set; }
 
-        [Required, Range(0,10)]
+        [Required, Range(0,5)]
         public double AmenitiesRating { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
+
+        public double AverageRating
+        {
+            get
+            {
+                var totalScore = CleanlinessRating + AmenitiesRating + AccessibilityRating;
+                return Math.Round(totalScore / 3 , 2);
+            }
+        }
     }
 }
