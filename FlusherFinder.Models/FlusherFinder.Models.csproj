@@ -59,6 +59,10 @@
     <Compile Include="NoteEdit.cs" />
     <Compile Include="NoteListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingCreate.cs" />
+    <Compile Include="RatingDetail.cs" />
+    <Compile Include="RatingEdit.cs" />
+    <Compile Include="RatingListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlusherFinder.Data\FlusherFinder.Data.csproj">
