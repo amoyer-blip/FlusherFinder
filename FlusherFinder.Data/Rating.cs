@@ -17,6 +17,9 @@ namespace FlusherFinder.Data
         
         public int LocationId { get; set; }
         public virtual Location Location { get; set; }
+
+        [Required]
+        public Guid CreatorId { get; set; }
        
         [Required]
         [Range(0,2)]
