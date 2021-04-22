@@ -35,5 +35,14 @@ namespace FlusherFinder.Data
         public double AmenitiesRating { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
+
+        public double AverageRating
+        {
+            get
+            {
+                var totalScore = CleanlinessRating + AmenitiesRating + AccessibilityRating;
+                return Math.Round(totalScore / 3, 2);
+            }
+        }
     }
 }
