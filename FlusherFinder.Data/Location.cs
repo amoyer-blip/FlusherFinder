@@ -18,14 +18,50 @@ namespace FlusherFinder.Data
         [Required]
         public string LocationAddress { get; set; }
 
+        [Required]
+        public string IsFamilyFriendly { get; set; }
+
+        [Required]
+        public string IsTwentyFourHour { get; set; }
+
+        [Required]
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        public DateTimeOffset? ModifiedUtc { get; set; }
+
         public virtual List<Rating> Ratings { get; set; } = new List<Rating>();
 
-        public double Rating { get; set; }
+        public Guid CreatorId { get; set; } 
 
-        public double IsRecommended { get; set; }
+        public bool IsRecommended
+        {
+            get
+            {
+                return Rating >= 4; //**Edit 
+            }
+        }
 
-        public double IsFamilyFriendly { get; set; }
+        public double Rating
+        {
+            get
+            {
+                double totalAveRating = 0;
+                foreach (var rating in Ratings)
+                {
+                    totalAveRating += rating.AverageRating;
+                }
 
-        public double IsTwentyFourHour { get; set; }
+                if (Ratings.Count > 0)
+                {
+                    return Math.Round(totalAveRating / Ratings.Count, 2);
+                }
+                else
+                {
+                    return 0;
+                }
+
+            }
+
+        }
     }
 }

@@ -8,5 +8,6 @@ namespace FlusherFinder.Data
 {
     public class Rating
     {
+        public double AverageRating { get; internal set; }
     }
 }
