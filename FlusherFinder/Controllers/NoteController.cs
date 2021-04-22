@@ -15,8 +15,8 @@ namespace FlusherFinder.Controllers
     {
         private NoteService CreateNoteService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var noteService = new NoteService(userId);
+            var creatorId = Guid.Parse(User.Identity.GetUserId());
+            var noteService = new NoteService(creatorId);
             return noteService;
         }
 
