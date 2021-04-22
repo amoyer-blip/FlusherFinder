@@ -71,7 +71,7 @@ namespace FlusherFinder.Services
                         NoteId = entity.NoteId,
                         RatingId = entity.RatingId,
                         LocationId = entity.LocationId,
-                        LocationName = entity.LocationName,
+                        //LocationName = entity.LocationName,
                         NoteTitle = entity.NoteTitle,
                         NoteContent = entity.NoteContent,
                         CreatedUtc = entity.CreatedUtc,
