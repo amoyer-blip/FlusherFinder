@@ -12,19 +12,20 @@ namespace FlusherFinder.Services
     {
         private readonly Guid _userId;
 
-        public RatingService(Guid userId)
+        public RatingService(Guid creatorId)
         {
-            _userId = userId;
+            _userId = creatorId;
         }
 
         public bool CreateRating(RatingCreate model)
         {
-            var entity = new RatingService()
+            var entity = new Rating()
             {
-                OwnerId = _userId,
-                Title = model.Title,
-                Content = model.Content,
-                CreatedUtc = DateTimeOffset.Now
+                LocationId = model.LocationId,
+                CleanlinessRating = model.CleanlinessRating,
+                AccessibilityRating = model.AccessibilityRating,
+                AmenitiesRating = model.AmenitiesRating
+
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -40,7 +41,7 @@ namespace FlusherFinder.Services
             {
                 var query = ctx
                     .Ratings
-                    .Where(e => e.OwnerId == _userId)
+                    .Where(e => e.CreatorId == _userId)
                     .Select(
                      e =>
                         new RatingListItem
@@ -61,17 +62,48 @@ namespace FlusherFinder.Services
                 var entity =
                     ctx
                         .Ratings
-                        .Single(e => e.RatingId == RatingDetail && e.OwnerId == _userId);
+                        .Single(e => e.RatingId == id && e.CreatorId == _userId);
                 return
                     new RatingDetail
                     {
                         RatingId = entity.RatingId,
-                        Title = entity.Title,
-                        Content = entity.Content,
-                        CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
+                        Location = entity.Location,
+                        CleanlinessRating = entity.CleanlinessRating,
+                        AccessibilityRating = entity.AccessibilityRating,
+                        AmenitiesRating = entity.AmenitiesRating
+                        
                     };
             }
         }
-    };
+        public bool UpdateRating(RatingEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Ratings
+                        .Single(e => e.RatingId == model.RatingId && e.CreatorId == _userId);
+
+                entity.RatingId = model.RatingId;
+                entity.Location = model.Location;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteRating(int ratingId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Ratings
+                        .Single(e => e.RatingId == ratingId && e.CreatorId == _userId);
+
+                ctx.Ratings.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+    }
 }

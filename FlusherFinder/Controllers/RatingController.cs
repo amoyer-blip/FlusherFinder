@@ -13,7 +13,7 @@ namespace FlusherFinder.Controllers
     [Authorize]
     public class RatingController : ApiController
     {
-        private RatingService RatingCreate()
+        private RatingService CreateRatingService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var ratingService = new RatingService(userId);
@@ -52,9 +52,9 @@ namespace FlusherFinder.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var rating = CreateRatingService();
+            var service = CreateRatingService();
 
-            if (!rating.UpdateRating(rating))
+            if (!service.UpdateRating(rating))
                 return InternalServerError();
 
             return Ok();

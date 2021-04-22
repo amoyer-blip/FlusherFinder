@@ -10,8 +10,9 @@ namespace FlusherFinder.Models
 {
     public class RatingCreate
     {
-        [Required]
-        public virtual Location Location { get; set; }
+        
+        public int LocationId { get; set; }
+
         [Required]
         public double CleanlinessRating { get; set; }
 
