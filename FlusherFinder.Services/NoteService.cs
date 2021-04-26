@@ -23,7 +23,7 @@ namespace FlusherFinder.Services
                 new Note()
                 {
                     CreatorId = _creatorId,
-                    //RatingId = model.RatingId,
+                    RatingId = model.RatingId,
                     NoteTitle = model.NoteTitle,
                     NoteContent = model.NoteContent,
                     CreatedUtc = DateTimeOffset.Now
@@ -69,7 +69,7 @@ namespace FlusherFinder.Services
                     new NoteDetail
                     {
                         NoteId = entity.NoteId,
-                        //RatingId = entity.RatingId,
+                        RatingId = entity.RatingId,
                         //LocationId = entity.LocationId,
                         //LocationName = entity.LocationName,
                         NoteTitle = entity.NoteTitle,
