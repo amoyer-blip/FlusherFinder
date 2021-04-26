@@ -69,7 +69,7 @@ namespace FlusherFinder.Services
                     new NoteDetail
                     {
                         NoteId = entity.NoteId,
-                        //RatingId = entity.RatingId,
+                        RatingId = entity.RatingId,
                         //LocationId = entity.LocationId,
                         //LocationName = entity.LocationName,
                         NoteTitle = entity.NoteTitle,
