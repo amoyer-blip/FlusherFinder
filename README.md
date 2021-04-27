@@ -10,7 +10,7 @@ Rochelle branch: Rating classes comprise the second tier. Rating relates to the 
 Addey branch: Note classes create the final tier. Note relates to the rating tier.
 Staging branch: An extra layer of protection against bugs. Developers test merges here first.
 Develop branch: For testing all three branches together, before pushing to the master.
-Master branch: Contains only code that is rigorously testing and peer reviewed by the team.
+Master branch: Contains only code that is rigorously tested and peer reviewed by the team.
 
 INSTALLATION
 Download this project into Visual Studio 2019.
