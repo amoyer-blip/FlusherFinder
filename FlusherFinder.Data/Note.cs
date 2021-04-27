@@ -14,14 +14,9 @@ namespace FlusherFinder.Data
         public int NoteId { get; set; }
 
         [ForeignKey(nameof(Rating))]
-        public int RatingId { get; set; }
+        public int? RatingId { get; set; }
 
         public virtual Rating Rating { get; set; }
-
-        [ForeignKey(nameof(Location))]
-        public int LocationId { get; set; }
-
-        public virtual Location Location { get; set; }
 
         [Required]
         public Guid CreatorId { get; set; }

@@ -13,7 +13,7 @@ namespace FlusherFinder.Models
         [MaxLength(50, ErrorMessage = "Title is too long. A maximum of 50 characters. Thank you.")]
         public string NoteTitle { get; set; }
 
-        public int RatingId { get; set; }
+        public int? RatingId { get; set; }
         [MaxLength(2000, ErrorMessage = "You have exceeded 2000 characters.")]
         public string NoteContent { get; set; }
     }
