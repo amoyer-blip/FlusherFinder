@@ -23,7 +23,7 @@ namespace FlusherFinder.Services
                 new Note()
                 {
                     CreatorId = _creatorId,
-                    RatingId = model.RatingId,
+                    RatingId = (model.RatingId is null) ? null : model.RatingId,
                     NoteTitle = model.NoteTitle,
                     NoteContent = model.NoteContent,
                     CreatedUtc = DateTimeOffset.Now
@@ -69,9 +69,7 @@ namespace FlusherFinder.Services
                     new NoteDetail
                     {
                         NoteId = entity.NoteId,
-                        RatingId = entity.RatingId,
-                        //LocationId = entity.LocationId,
-                        //LocationName = entity.LocationName,
+                        RatingId = (entity.RatingId is null) ? null : entity.RatingId,
                         NoteTitle = entity.NoteTitle,
                         NoteContent = entity.NoteContent,
                         CreatedUtc = entity.CreatedUtc,
@@ -88,22 +86,22 @@ namespace FlusherFinder.Services
                     ctx
                         .Notes
                         .Single(e => e.NoteId == model.NoteId && e.CreatorId == _creatorId);
-                entity.NoteTitle = model.NoteTitle;
-                entity.NoteContent = model.NoteContent;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                    entity.NoteTitle = model.NoteTitle;
+                    entity.NoteContent = model.NoteContent;
+                    entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool DeleteNote(int noteId)
+        public bool DeleteNote(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Notes
-                        .Single(e => e.NoteId == noteId && e.CreatorId == _creatorId);
+                        .Single(e => e.NoteId == id && e.CreatorId == _creatorId);
                 ctx.Notes.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
