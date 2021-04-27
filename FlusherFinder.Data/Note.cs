@@ -16,7 +16,7 @@ namespace FlusherFinder.Data
         [ForeignKey(nameof(Rating))]
         public int? RatingId { get; set; }
 
-        public virtual Rating Rating { get; set; }
+        //public virtual Rating Rating { get; set; }
 
         [Required]
         public Guid CreatorId { get; set; }
