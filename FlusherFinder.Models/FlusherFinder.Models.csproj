@@ -54,7 +54,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LocationCreate.cs" />
+    <Compile Include="LocationDetails.cs" />
+    <Compile Include="LocationEdit.cs" />
+    <Compile Include="LocationListItem.cs" />
+    <Compile Include="NoteCreate.cs" />
+    <Compile Include="NoteDetail.cs" />
+    <Compile Include="NoteEdit.cs" />
+    <Compile Include="NoteListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingCreate.cs" />
+    <Compile Include="RatingDetail.cs" />
+    <Compile Include="RatingEdit.cs" />
+    <Compile Include="RatingListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlusherFinder.Data\FlusherFinder.Data.csproj">
