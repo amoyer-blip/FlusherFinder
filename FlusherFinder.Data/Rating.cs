@@ -14,14 +14,15 @@ namespace FlusherFinder.Data
         public int RatingId { get; set; }
 
         [ForeignKey(nameof(Location))]
-        public int LocationId { get; set; }
+        public int ? LocationId { get; set; }
         public virtual Location Location { get; set; }
+        public string LocationName { get; set; }
 
         [Required]
         public Guid CreatorId { get; set; }
        
         [Required]
-        [Range(0,5)]
+        [Range(0,2)]
         public double CleanlinessRating { get; set; }
 
         [Required, Range(0,5)]
@@ -31,7 +32,7 @@ namespace FlusherFinder.Data
         //if it is present, otherwise it will get a "0". 
         public double AccessibilityRating { get; set; }
 
-        [Required, Range(0,5)]
+        [Required, Range(0,10)]
         public double AmenitiesRating { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }

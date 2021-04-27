@@ -10,6 +10,8 @@ namespace FlusherFinder.Models
     public class RatingEdit
     {
         public int RatingId { get; set; }
-        public virtual Location Location { get; set; }
+        public double CleanlinessRating { get; set; }
+        public double AccessibilityRating { get; set; }
+        public double AmenitiesRating { get; set; }
     }
 }
