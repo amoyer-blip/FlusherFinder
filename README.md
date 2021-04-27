@@ -7,6 +7,9 @@ A public restroom finder WebAPI that allows users to rate public restrooms. This
 AGILE PLANNING (TRELLO BOARD LINK)
 https://trello.com/b/vufFvdnG/agile-sprint-board
 
+API ENDPOINT DOCUMENTATION
+https://docs.google.com/document/d/10ip0FqDzN-dRRYF-NxGJA77QwBKzIvJNNHPqH4iHtUA/edit?usp=sharing
+
 TABLE OF CONTENTS
 Ally branch: Location classes form the first tier of our project. 
 Rochelle branch: Rating classes comprise the second tier. Rating relates to the location tier.
