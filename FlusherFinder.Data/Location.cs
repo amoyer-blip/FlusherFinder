@@ -31,7 +31,7 @@ namespace FlusherFinder.Data
 
         public virtual List<Rating> Ratings { get; set; } = new List<Rating>();
 
-        public Guid CreatorId { get; set; } 
+        public Guid CreatorId { get; set; }
 
         public bool IsRecommended
         {

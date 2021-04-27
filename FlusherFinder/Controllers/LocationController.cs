@@ -27,10 +27,10 @@ namespace FlusherFinder.Controllers
             return Ok(locations);
         }
 
-        public IHttpActionResult Get(int locationId)
+        public IHttpActionResult Get(int id)
         {
             LocationService locationService = CreateLocationService();
-            var location = locationService.GetLocationsById(locationId);
+            var location = locationService.GetLocationsById(id);
             return Ok(location);
         }
 
@@ -60,11 +60,11 @@ namespace FlusherFinder.Controllers
             return Ok();
         }
 
-        public IHttpActionResult Delete(int locationId)
+        public IHttpActionResult Delete(int id)
         {
             var service = CreateLocationService();
 
-            if(!service.DeleteLocation(locationId))
+            if (!service.DeleteLocation(id))
                 return InternalServerError();
 
             return Ok();
