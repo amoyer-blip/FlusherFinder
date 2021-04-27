@@ -26,10 +26,11 @@ namespace FlusherFinder.Services
             {
                 //LocationCreate - ALL we need to create a new location:
                 CreatorId = _creatorId,
-                LocationId = model.LocationId,
                 LocationName = model.LocationName,
                 LocationAddress = model.LocationAddress,
-                CreatedUtc = model.CreatedUtc
+                IsFamilyFriendly = model.IsFamilyFriendly,
+                IsTwentyFourHour = model.IsTwentyFourHour,
+                CreatedUtc = DateTimeOffset.Now
             };
             //Add to Locations (the Dbset<Location)
             using (var ctx = new ApplicationDbContext())
@@ -57,53 +58,50 @@ namespace FlusherFinder.Services
                         LocationAddress = e.LocationAddress
                     });
 
-                return query.ToList(); //Does this need to be changed to ToArray?
+                return query.ToArray(); //Does this need to be changed to ToArray?
             }
         }
 
         //Read 
-        public LocationDetails GetLocationsById(int locationId)
+        public LocationDetails GetLocationsById(int id)
         {
             //LINQ
             using (var ctx = new ApplicationDbContext())
             {
-                var location =
+                var entity =
                     ctx
                     .Locations
-                    .Single(e => e.CreatorId == _creatorId && e.LocationId == locationId);
-
-                if (location is null)
-                {
-                    return null; 
-                }
+                    .Single(e => e.LocationId == id && e.CreatorId == _creatorId);
 
                 return new Models.LocationDetails
                 {
-                    LocationId = location.LocationId,
-                    LocationName = location.LocationName,
-                    LocationAddress = location.LocationAddress, 
-                    IsFamilyFriendly = location.IsFamilyFriendly, 
-                    IsTwentyFourHour = location.IsTwentyFourHour, 
-                    Rating = location.Rating
+                    LocationId = entity.LocationId,
+                    LocationName = entity.LocationName,
+                    LocationAddress = entity.LocationAddress,
+                    IsFamilyFriendly = entity.IsFamilyFriendly,
+                    IsTwentyFourHour = entity.IsTwentyFourHour,
+                    Rating = entity.Rating
                 };
 
             }
         }
 
         //Update
-        public bool UpdateLocation(LocationEdit newLocationData)
+        public bool UpdateLocation(LocationEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var oldLocationData =
+                var entity =
                     ctx
                     .Locations
-                    .Single(e => e.LocationId == newLocationData.LocationId && e.CreatorId == _creatorId);
+                    .Single(e => e.LocationId == model.LocationId && e.CreatorId == _creatorId);
 
-                oldLocationData.LocationId = newLocationData.LocationId;
-                oldLocationData.LocationName = newLocationData.LocationName;
-                oldLocationData.LocationAddress = newLocationData.LocationAddress;
-                oldLocationData.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.LocationId = model.LocationId;
+                entity.LocationName = model.LocationName;
+                entity.LocationAddress = model.LocationAddress;
+                entity.IsFamilyFriendly = model.IsFamilyFriendly;
+                entity.IsTwentyFourHour = model.IsTwentyFourHour;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
 
@@ -111,14 +109,14 @@ namespace FlusherFinder.Services
         }
 
         //Delete 
-        public bool DeleteLocation(int LocationId)
+        public bool DeleteLocation(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Locations
-                    .Single(e => e.LocationId == LocationId && e.CreatorId == _creatorId);
+                    .Single(e => e.LocationId == id && e.CreatorId == _creatorId);
 
                 ctx.Locations.Remove(entity);
 
