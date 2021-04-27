@@ -22,7 +22,7 @@ namespace FlusherFinder.Services
             var entity = new Rating()
             {
                 CreatorId = _creatorId,
-                LocationId = (model.LocationId is null) ? null : model.LocationId,
+                LocationId = model.LocationId,
                 CleanlinessRating = model.CleanlinessRating,
                 AccessibilityRating = model.AccessibilityRating,
                 AmenitiesRating = model.AmenitiesRating,

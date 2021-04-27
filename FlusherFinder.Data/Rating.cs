@@ -25,7 +25,7 @@ namespace FlusherFinder.Data
         [Range(0,2)]
         public double CleanlinessRating { get; set; }
 
-        [Required, Range(0,5)]
+        [Required, Range(0,10)]
         //For Accessibility & Amenities ratings:
         //Range will change depending on the number of factors we will be looking at.
         //IE, right now we're set up to look at 10 different amenities. Each amenity will get a "1"
