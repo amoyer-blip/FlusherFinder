@@ -2,18 +2,21 @@ PROJECT NAME
 # FlusherFinder
 
 DESCRIPTION
-Completed three challenges for Eleven Fifty Academy. Successful completion of Gold Badge Challenges will allow for entrance into Blue Badge coursework. 
+A public restroom finder WebAPI that allows users to rate public restrooms. This will allow users to quickly and easily find restrooms that meet their needs/preferences.
 
 TABLE OF CONTENTS
 Ally branch: Location classes form the first tier of our project. 
 Rochelle branch: Rating classes comprise the second tier. Rating relates to the location tier.
 Addey branch: Note classes create the final tier. Note relates to the rating tier.
+Staging branch: An extra layer of protection against bugs. Developers test merges here first.
+Develop branch: For testing all three branches together, before pushing to the master.
+Master branch: Contains only code that is rigorously testing and peer reviewed by the team.
 
 INSTALLATION
 Download this project into Visual Studio 2019.
 
 USAGE
-Utilize Visual Studio 2019 and Postman to test back-end development of this project. Front-end still needs to be developed.
+Utilize Visual Studio 2019 and Postman to test back-end development of this project. Front-end will be developed in the future, timetable TBD.
 
 CONTRIBUTING
 Addey Al-Shboul, Ally Moyer, & Rochelle Deulley
