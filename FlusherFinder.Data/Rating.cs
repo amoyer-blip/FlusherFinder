@@ -14,8 +14,9 @@ namespace FlusherFinder.Data
         public int RatingId { get; set; }
 
         [ForeignKey(nameof(Location))]
-        public int LocationId { get; set; }
+        public int ? LocationId { get; set; }
         public virtual Location Location { get; set; }
+        public string LocationName { get; set; }
 
         [Required]
         public Guid CreatorId { get; set; }
@@ -24,7 +25,7 @@ namespace FlusherFinder.Data
         [Range(0,2)]
         public double CleanlinessRating { get; set; }
 
-        [Required, Range(0,10)]
+        [Required, Range(0,5)]
         //For Accessibility & Amenities ratings:
         //Range will change depending on the number of factors we will be looking at.
         //IE, right now we're set up to look at 10 different amenities. Each amenity will get a "1"
@@ -41,7 +42,7 @@ namespace FlusherFinder.Data
             get
             {
                 var totalScore = CleanlinessRating + AmenitiesRating + AccessibilityRating;
-                return Math.Round(totalScore / 3, 2);
+                return Math.Round(totalScore / 3 , 2);
             }
         }
     }
