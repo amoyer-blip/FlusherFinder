@@ -17,14 +17,10 @@ namespace FlusherFinder.Services
             _creatorId = creatorId;
         }
 
-        //Create
         public bool CreateLocation(LocationCreate model)
         {
-            //Our mapping begins here 
-            //Map a "LocationCreate" to a Location 
             var entity = new Location
             {
-                //LocationCreate - ALL we need to create a new location:
                 CreatorId = _creatorId,
                 LocationName = model.LocationName,
                 LocationAddress = model.LocationAddress,
@@ -32,17 +28,13 @@ namespace FlusherFinder.Services
                 IsTwentyFourHour = model.IsTwentyFourHour,
                 CreatedUtc = DateTimeOffset.Now
             };
-            //Add to Locations (the Dbset<Location)
             using (var ctx = new ApplicationDbContext())
             {
-                //Add the entity(Location) to the DbSet<Location> in IdentityModels.cs
                 ctx.Locations.Add(entity);
-                //Save to database 
                 return ctx.SaveChanges() > 0;
             }
         }
 
-        //Read
         public IEnumerable<LocationListItem> GetLocations()
         {
             using (var ctx = new ApplicationDbContext())
@@ -58,14 +50,12 @@ namespace FlusherFinder.Services
                         LocationAddress = e.LocationAddress
                     });
 
-                return query.ToArray(); //Does this need to be changed to ToArray?
+                return query.ToArray();
             }
         }
 
-        //Read 
         public LocationDetails GetLocationsById(int id)
         {
-            //LINQ
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
@@ -86,7 +76,6 @@ namespace FlusherFinder.Services
             }
         }
 
-        //Update
         public bool UpdateLocation(LocationEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -108,7 +97,6 @@ namespace FlusherFinder.Services
             }
         }
 
-        //Delete 
         public bool DeleteLocation(int id)
         {
             using (var ctx = new ApplicationDbContext())

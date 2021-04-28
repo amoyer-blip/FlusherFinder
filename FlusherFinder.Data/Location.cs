@@ -37,7 +37,7 @@ namespace FlusherFinder.Data
         {
             get
             {
-                return Rating >= 4; //**Edit 
+                return Rating >= 4;
             }
         }
 
