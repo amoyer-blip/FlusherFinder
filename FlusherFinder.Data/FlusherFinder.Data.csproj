@@ -87,6 +87,19 @@
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="LocationDb.cs" />
+    <Compile Include="Migrations\202104271817453_InitialMigration.cs" />
+    <Compile Include="Migrations\202104271817453_InitialMigration.Designer.cs">
+      <DependentUpon>202104271817453_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104271936164_SecondMigration.cs" />
+    <Compile Include="Migrations\202104271936164_SecondMigration.Designer.cs">
+      <DependentUpon>202104271936164_SecondMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104271939039_ThirdMigration.cs" />
+    <Compile Include="Migrations\202104271939039_ThirdMigration.Designer.cs">
+      <DependentUpon>202104271939039_ThirdMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rating.cs" />
@@ -94,6 +107,17 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202104271817453_InitialMigration.resx">
+      <DependentUpon>202104271817453_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104271936164_SecondMigration.resx">
+      <DependentUpon>202104271936164_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104271939039_ThirdMigration.resx">
+      <DependentUpon>202104271939039_ThirdMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
