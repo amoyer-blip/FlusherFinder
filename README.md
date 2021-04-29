@@ -10,6 +10,9 @@ https://trello.com/b/vufFvdnG/agile-sprint-board
 API ENDPOINT DOCUMENTATION
 https://docs.google.com/document/d/10ip0FqDzN-dRRYF-NxGJA77QwBKzIvJNNHPqH4iHtUA/edit?usp=sharing
 
+Presentation Slide
+https://docs.google.com/presentation/d/1NsAZFknKbnZB5wZL1FP-NP46yT9sWOAHAPdAZo0XY0o/edit?usp=sharing
+
 TABLE OF CONTENTS
 Ally branch: Location classes form the first tier of our project. 
 Rochelle branch: Rating classes comprise the second tier. Rating relates to the location tier.
