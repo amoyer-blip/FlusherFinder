@@ -31,7 +31,7 @@ CONTRIBUTING
 Addey Al-Shboul, Ally Moyer, & Rochelle Deulley
 
 CREDITS
-None
+Image credit from MSP International Airport, from the article "Best Public Bathrooms in America in 2016". https://www.thrillist.com/travel/nation/best-public-bathrooms-america-ranked
 
 LICENSE
 MIT License
